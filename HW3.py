@@ -18,18 +18,15 @@ def sigmoid_binary(realnumber):
     return(Sigmoid)
 
 def crossentropy_binary(predictive, ground_truth):
-    ce = ((-1*predictive) * np.log10(ground_truth)) - ((1 - predictive) * np.log10(1-ground_truth))
+    ce = ((-1*ground_truth) * np.log(predictive)) - ((1 - ground_truth) * np.log(1-predictive))
     return(ce)
 
 def softmax_binary(vector):
-    sum_vector = 0
+    softmaxed_vector = [1]*len(vector)
     for i in range(len(vector)):
-        sum_vector = sum_vector + np.exp(vector[i])
-        
-    for i in range(len(vector)):
-        vector[i] = np.exp(vector[i])/sum_vector
+        softmaxed_vector[i] = np.exp(vector[i])/sum(np.exp(vector))
     
-    return(vector)
+    return(softmaxed_vector)
 
 
 #%% Multiclass Classification
