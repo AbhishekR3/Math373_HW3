@@ -21,15 +21,16 @@ def crossentropy_binary(predictive, ground_truth):
     ce = ((-1*ground_truth) * np.log(predictive)) - ((1 - ground_truth) * np.log(1-predictive))
     return(ce)
 
-def softmax_binary(vector):
+#%% Multiclass Classification
+#Softmax Function
+def softmax(vector):
     softmaxed_vector = [1]*len(vector)
     for i in range(len(vector)):
         softmaxed_vector[i] = np.exp(vector[i])/sum(np.exp(vector))
     
-    return(softmaxed_vector)
+    return(
+        ed_vector)
 
-
-#%% Multiclass Classification
 #Cross-entropy loss for multiclass classification
 def crossentropy_multiclass(predictive_vector, groundtruth_vector):
     minus_vector = 0
@@ -47,8 +48,8 @@ print("Example of Sigmoid Binary Classification: 5 converts to "
 print("Example of Cross Entropy of Binary Classification: [0.6, 0.5] converts to " 
       + str(crossentropy_binary(0.6, 0.5)))
 
-print("Example of Softmax Binary: [1,2,3,4] converts into " 
-      + str(softmax_binary([1, 2, 3, 4])))
+print("Example of Softmax: [1,2,3,4] converts into " 
+      + str(softmax([1, 2, 3, 4])))
 
 print("Example of Cross Entropy of Multiclass Classification: [0.1,0.2,0.3,0.4], [0.7,0.7, 0.7, 0.7] converts into " 
       + str(crossentropy_multiclass([0.1,0.2,0.3,0.4], [0.7,0.7, 0.7, 0.7])))
