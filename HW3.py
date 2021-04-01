@@ -28,8 +28,7 @@ def softmax(vector):
     for i in range(len(vector)):
         softmaxed_vector[i] = np.exp(vector[i])/sum(np.exp(vector))
     
-    return(
-        ed_vector)
+    return(softmaxed_vector)
 
 #Cross-entropy loss for multiclass classification
 def crossentropy_multiclass(predictive_vector, groundtruth_vector):
